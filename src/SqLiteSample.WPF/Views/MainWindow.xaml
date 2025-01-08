@@ -14,6 +14,8 @@
     <StackPanel>
         <Button Content="SQLite バージョン確認"
                 Command="{Binding GetSQLiteVersion}"/>
+        <Button Content="サンプル DB 生成"
+                Command="{Binding CreateDB}"/>
         <TextBlock Text="{Binding LogMessage.Value}"
                    Background="#222"
                    Foreground="#ccc"/>
