@@ -17,6 +17,10 @@ namespace SqLiteSample.Platform.WPF.ViewModels
 
         public ReactiveCommandSlim GetSQLiteVersion { get; } = new();
         public ReactiveCommandSlim CreateDB { get; } = new();
+        public ReactiveCommandSlim AddColumn { get; } = new();
+
+        public ReactivePropertySlim<string> Name { get; } = new();
+        public ReactivePropertySlim<string> Age { get; } = new();
 
         public ReactivePropertySlim<string> LogMessage { get; } = new();
 
@@ -27,6 +31,9 @@ namespace SqLiteSample.Platform.WPF.ViewModels
                 .AddTo(Disposables);
             CreateDB
                 .Subscribe(ExeCreateDB)
+                .AddTo(Disposables);
+            AddColumn
+                .Subscribe(ExeAddColumn)
                 .AddTo(Disposables);
         }
 
@@ -44,6 +51,12 @@ namespace SqLiteSample.Platform.WPF.ViewModels
         private void ExeCreateDB()
         {
             var table = _dbAccess.CreateDB();
+            LogMessage.Value = table;
+        }
+
+        private void ExeAddColumn()
+        {
+            var table = _dbAccess.AddColumn(Name.Value, int.Parse(Age.Value));
             LogMessage.Value = table;
         }
     }

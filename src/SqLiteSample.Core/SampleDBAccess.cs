@@ -1,15 +1,16 @@
 ﻿using System.Data.SQLite;
 using System.Text;
+using System.Xml.Linq;
 
 namespace SqLiteSample.Core
 {
     public class SampleDBAccess
     {
-        private SQLiteConnectionStringBuilder _db;
+        private static string _db;
 
         public SampleDBAccess()
         {
-            _db = new SQLiteConnectionStringBuilder { DataSource = ":memory:" };
+            _db = "Data Source=sample.db;Version=3;";
         }
 
         public string GetSQLiteVersion()
@@ -55,29 +56,49 @@ namespace SqLiteSample.Core
                 {
                     command.ExecuteNonQuery();
                 }
-
-                // データを取得して文字列として出力
-                string selectQuery = "SELECT * FROM SampleTable;";
-                using (var command = new SQLiteCommand(selectQuery, connection))
-                using (var reader = command.ExecuteReader())
-                {
-                    var sb = new StringBuilder();
-                    sb.AppendLine("Id | Name    | Age");
-                    sb.AppendLine("---|---------|----");
-
-                    while (reader.Read())
-                    {
-                        int id = reader.GetInt32(0);
-                        string name = reader.GetString(1);
-                        int age = reader.GetInt32(2);
-
-                        sb.AppendLine($"{id,2} | {name,-7} | {age,3}");
-                    }
-
-                    Console.WriteLine(sb.ToString());
-                    return sb.ToString();
-                }
+                var result = SelectAll(connection);
+                return result;
             }
+        }
+
+        public string AddColumn(string name, int age)
+        {
+            using (var connection = new SQLiteConnection(_db))
+            {
+                connection.Open();
+                string insertQuery = "INSERT INTO SampleTable (Name, Age) VALUES (@Name, @Age);";
+                using (var command = new SQLiteCommand(insertQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", name);
+                    command.Parameters.AddWithValue("@Age", age);
+                    command.ExecuteNonQuery();
+                }
+
+                return SelectAll(connection);
+            }
+        }
+
+        private string SelectAll(SQLiteConnection connection)
+        {
+            // データを取得して文字列として出力
+            string selectQuery = "SELECT * FROM SampleTable;";
+            using var command = new SQLiteCommand(selectQuery, connection);
+            using var reader = command.ExecuteReader();
+            var sb = new StringBuilder();
+            sb.AppendLine("Id | Name    | Age");
+            sb.AppendLine("---|---------|----");
+
+            while (reader.Read())
+            {
+                int id = reader.GetInt32(0);
+                string name = reader.GetString(1);
+                int age = reader.GetInt32(2);
+
+                sb.AppendLine($"{id,2} | {name,-7} | {age,3}");
+            }
+
+            Console.WriteLine(sb.ToString());
+            return sb.ToString();
         }
     }
 }

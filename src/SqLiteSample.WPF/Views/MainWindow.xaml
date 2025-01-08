@@ -11,11 +11,21 @@
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>
     </Window.DataContext>
-    <StackPanel>
+    <StackPanel Margin="12">
         <Button Content="SQLite バージョン確認"
                 Command="{Binding GetSQLiteVersion}"/>
         <Button Content="サンプル DB 生成"
                 Command="{Binding CreateDB}"/>
+        <GroupBox Header="DB に行を追加する">
+            <StackPanel>
+                <TextBlock Text="Name"/>
+                <TextBox Text="{Binding Name.Value}"/>
+                <TextBlock Text="Age"/>
+                <TextBox Text="{Binding Age.Value}"/>
+                <Button Content="確定"
+                        Command="{Binding AddColumn}"/>
+            </StackPanel>
+        </GroupBox>
         <TextBlock Text="{Binding LogMessage.Value}"
                    Background="#222"
                    Foreground="#ccc"/>
