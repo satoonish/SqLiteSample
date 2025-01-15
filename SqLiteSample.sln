@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqLiteSample.Core", "src\SqLiteSample.Core\SqLiteSample.Core.csproj", "{8A68202F-C7AB-495C-BFE4-F5B6750AF663}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteSample.Platform.Console", "src\SQLiteSample.Platform.Console\SQLiteSample.Platform.Console.csproj", "{084A135A-F49F-41D5-A855-651E54A1167D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqLiteSample.Platform.WPF", "src\SqLiteSample.WPF\SqLiteSample.Platform.WPF.csproj", "{BCB99D8A-8402-4E9B-A23C-BD697CE8D957}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteSample.Core", "src\SQLiteSample.Core\SQLiteSample.Core.csproj", "{66B4AD02-1BA0-4C7A-8DC9-1C608E2DBE76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteSample.Infrastructure", "src\SQLiteSample.Infrastructure\SQLiteSample.Infrastructure.csproj", "{CE64D10B-392D-4C6E-A1D7-75C719B45D05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8A68202F-C7AB-495C-BFE4-F5B6750AF663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A68202F-C7AB-495C-BFE4-F5B6750AF663}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A68202F-C7AB-495C-BFE4-F5B6750AF663}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A68202F-C7AB-495C-BFE4-F5B6750AF663}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BCB99D8A-8402-4E9B-A23C-BD697CE8D957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCB99D8A-8402-4E9B-A23C-BD697CE8D957}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCB99D8A-8402-4E9B-A23C-BD697CE8D957}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCB99D8A-8402-4E9B-A23C-BD697CE8D957}.Release|Any CPU.Build.0 = Release|Any CPU
+		{084A135A-F49F-41D5-A855-651E54A1167D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{084A135A-F49F-41D5-A855-651E54A1167D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{084A135A-F49F-41D5-A855-651E54A1167D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{084A135A-F49F-41D5-A855-651E54A1167D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66B4AD02-1BA0-4C7A-8DC9-1C608E2DBE76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66B4AD02-1BA0-4C7A-8DC9-1C608E2DBE76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66B4AD02-1BA0-4C7A-8DC9-1C608E2DBE76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66B4AD02-1BA0-4C7A-8DC9-1C608E2DBE76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE64D10B-392D-4C6E-A1D7-75C719B45D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE64D10B-392D-4C6E-A1D7-75C719B45D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE64D10B-392D-4C6E-A1D7-75C719B45D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE64D10B-392D-4C6E-A1D7-75C719B45D05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
